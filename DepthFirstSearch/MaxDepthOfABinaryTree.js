@@ -8,15 +8,9 @@ class Node {
 
 function treeMaxDepth(root) {
     // WRITE YOUR BRILLIANT CODE HERE
-    return findDepth(root, 0);
-}
-
-function findDepth(node, currentDepth){
-    if(!node){
-        return currentDepth;
-    }
-    currentDepth++;
-    return Math.max(findDepth(node.left, currentDepth), findDepth(node.right, currentDepth));
+   if (root === null) return 0;
+    // Depth of current node's subtree = max depth of the two subtrees + 1 provided by current node
+    return Math.max(treeMaxDepth(root.left), treeMaxDepth(root.right)) + 1;
 }
 
 function buildTree(nodes, f) {
