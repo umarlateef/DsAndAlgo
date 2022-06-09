@@ -7,11 +7,11 @@ function isBalanced(tree) {
 function checkBalance(node){
      if(!node)
         return 0;
-    let leftDepth = checkBalance(node.left)+1;
-    let rightDepth = checkBalance(node.right)+1;
+    let leftDepth = checkBalance(node.left);
+    let rightDepth = checkBalance(node.right);
     if(leftDepth===-1 || rightDepth===-1)
         return -1;
     if(Math.abs(leftDepth-rightDepth)>1)
         return -1;
-    return Math.max(leftDepth, rightDepth);
+    return Math.max(leftDepth, rightDepth)+1;
 }
